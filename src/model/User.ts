@@ -26,8 +26,8 @@ export interface User extends Document{
     verifyCode: string;
     verifyCodeExpiry: Date;
     isVerified: boolean;
-    isAcceptingMessage: boolean;
-    message: Message[]; // an array of Message documents, which is a reference to the Message collection in MongoDB. Each element in the message array will be an ObjectId that references a Message document.
+    isAcceptingMessages: boolean;
+    messages: Message[]; // an array of Message documents
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -59,11 +59,11 @@ const UserSchema: Schema<User> = new Schema({
         type: Boolean,
         required: false
     },
-    isAcceptingMessage: {
+    isAcceptingMessages: {
         type: Boolean,
         required: true
     },
-    message: [MessageSchema] // an array of Message documents, which is a reference to the Message collection in MongoDB. Each element in the message array will be an ObjectId that references a Message document.
+    messages: [MessageSchema]
 });
 
 const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema);

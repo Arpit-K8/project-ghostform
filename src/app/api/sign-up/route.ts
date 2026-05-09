@@ -101,10 +101,12 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Error registering user:", error);
 
+    const errorMessage = error instanceof Error ? error.message : "Error registering user";
+
     return Response.json(
       {
         success: false,
-        message: "Error registering user",
+        message: errorMessage,
       },
       { status: 500 }
     );
