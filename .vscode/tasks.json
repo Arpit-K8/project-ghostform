@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "install-fontawesome",
+			"type": "shell",
+			"command": "npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [
+				"$npm"
+			],
+			"group": "build"
+		}
+	]
+}
